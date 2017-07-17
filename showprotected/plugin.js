@@ -64,7 +64,7 @@ CKEDITOR.plugins.add( 'showprotected', {
 		if ( dataFilter ) {
 			dataFilter.addRules( {
 				comment: function( commentText, commentElement, abc ) {
-					if(commentText.indexOf(CKEDITOR.plugins.showprotected.protectedSourceMarker) == 0) {
+					if(commentText.indexOf(CKEDITOR.plugins.showprotected.protectedSourceMarker) == 0 && commentElement.value.indexOf('%3Cmeta') == -1) {
 						commentElement.attributes = [];
 
 						var cleanedCommentText = CKEDITOR.plugins.showprotected.decodeProtectedSource( commentText );
